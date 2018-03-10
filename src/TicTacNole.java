@@ -11,15 +11,85 @@
    would like to play another game.
  */
 
-public class TicTacNole
-{
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
-    public static void main (String[] args)
+public class TicTacNole extends JFrame implements ActionListener
+{
+    private final JLabel titleBar;
+    private final JPanel titleArea;
+    private final JPanel buttonArea;
+    private final JPanel statusArea;
+    private final JButton[] buttons;
+    private final JLabel statusBar;
+    private final JButton reset;
+    private static String[] buttonLabels = {" "," "," "," "," "," "," "," "," "};
+
+    //TicTacNole Constructor
+    public TicTacNole()
     {
-        System.out.println("Hello World!");
+        //specifies the title of the window
+        super("FSU - Tic Tac Nole");
+
+        //Panel for Title Area
+        titleArea = new JPanel();
+        titleArea.setLayout(new FlowLayout());
+        titleBar = new JLabel("FSU - Tic Tac Nole");
+        titleArea.add(titleBar); //add title bar to the title area Panel
+
+        //Panel for Button Area
+        buttonArea = new JPanel();
+        buttonArea.setLayout(new GridLayout(3,3)); //3 rows by 3 columns
+        buttons = new JButton[buttonLabels.length];
+
+        for (int count = 0; count < buttonLabels.length; ++count)
+        {
+            buttons[count] = new JButton(buttonLabels[count]);
+            buttons[count].addActionListener(this);
+            buttonArea.add(buttons[count]);
+        }
+
+        //Panel for Status Area - This will display current turn information as well as a reset button
+        statusArea = new JPanel();
+        statusArea.setLayout(new GridLayout(2,1)); //2 rows by 1 column
+        statusBar = new JLabel("Dummy Text for Now");
+        statusBar.setHorizontalAlignment(JLabel.CENTER);
+        reset = new JButton("Reset Game");
+        statusArea.add(statusBar);
+        statusArea.add(reset);
+
+
+        //Add all panels to the Frame
+        add(titleArea,BorderLayout.NORTH);
+        add(buttonArea,BorderLayout.CENTER);
+        add(statusArea,BorderLayout.SOUTH);
+        this.pack();
+
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent event)
+    {
+        //put code here
     }
 
 
+    //Tic Tac Nole's main class
+    public static void main(String[] args)
+    {
+        TicTacNole game = new TicTacNole();
+        game.setVisible(true);
+        game.setSize(360,360);
+        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+    }
+
+}
 
     /*
     private static int[][] winCombinations = new int[][]{
@@ -123,5 +193,5 @@ public class TicTacNole
         }
         xOrO = 0; // reset the count
     */
-}
+
 
