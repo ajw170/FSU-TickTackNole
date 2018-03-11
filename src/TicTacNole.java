@@ -31,7 +31,7 @@ public class TicTacNole extends JFrame
     private boolean xGoes = true; //starts out as X turn always
 
     //TicTacNole Constructor
-    private TicTacNole()
+    public TicTacNole()
     {
         //specifies the title of the window
         super("FSU - Tic Tac Nole");
