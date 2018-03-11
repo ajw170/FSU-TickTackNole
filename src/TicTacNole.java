@@ -15,7 +15,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
 
 public class TicTacNole extends JFrame
 {
@@ -31,7 +30,7 @@ public class TicTacNole extends JFrame
     private boolean xGoes = true; //starts out as X turn always
 
     //TicTacNole Constructor
-    public TicTacNole()
+    private TicTacNole()
     {
         //specifies the title of the window
         super("FSU - Tic Tac Nole");
@@ -112,7 +111,7 @@ public class TicTacNole extends JFrame
                 }
                 //now check to see if the game is in an end state
                 GameState state = checkEnd();
-                int playAgain = 0;
+                int playAgain;
                 switch(state)
                 {
                     case CONTINUE:
@@ -226,7 +225,7 @@ public class TicTacNole extends JFrame
         TicTacNole game = new TicTacNole();
         game.setVisible(true);
         game.setSize(360,360);
-        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
 }
