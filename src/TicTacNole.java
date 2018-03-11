@@ -4,8 +4,9 @@
 
    This program implements a GUI using the java.swing GUI components to
    represent a tic tac toe board.  The user clicks on the board to mark the
-   'X' or 'O'.  Two human users can play or a human can play against a computer
-   player.
+   'X' or 'O'.  Each turn alternates between X and O.
+
+   Future plan is to add computer player functionality.
 
    When a winner is detected or a draw occurs, a message displays asking if the user
    would like to play another game.
