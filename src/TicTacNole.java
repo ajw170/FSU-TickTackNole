@@ -36,6 +36,35 @@ public class TicTacNole extends JFrame
         //specifies the title of the window
         super("FSU - Tic Tac Nole");
 
+        //Menu Bar
+        JMenu fileMenu = new JMenu("File");
+        fileMenu.setMnemonic('F');
+
+        JMenu editMenu = new JMenu("Edit");
+        editMenu.setMnemonic('E');
+
+        //Exit Item
+        JMenuItem exitItem = new JMenuItem("Exit");
+        exitItem.setMnemonic('x');
+        fileMenu.add(exitItem);
+        exitItem.addActionListener(
+                //anonymous inner class
+                new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent event)
+                    {
+                        System.exit(0);
+                    }
+                }
+
+        );
+
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+
         //Panel for Title Area
         titleArea = new JPanel();
         titleArea.setLayout(new FlowLayout());
