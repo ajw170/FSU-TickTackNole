@@ -202,6 +202,7 @@ public class TicTacNole extends JFrame
         {
             button.setText(" ");
         }
+        statusBar.setText("X's Turn");
         xGoes = true;
     }
 
@@ -244,7 +245,10 @@ public class TicTacNole extends JFrame
             }
         }
         if (isFull)
+        {
+            statusBar.setText("Cat Game!");
             return GameState.DRAW;
+        }
         else
             return GameState.CONTINUE;
     }
